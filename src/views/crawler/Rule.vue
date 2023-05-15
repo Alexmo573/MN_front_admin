@@ -384,7 +384,7 @@ export default {
       const loading = this.$loading({
         lock: true,
         text: "Loading",
-        spinner: "el-icon-loading",
+        //spinner: "el-icon-loading",
         background: "rgba(0, 0, 0, 0.7)",
       });
       this.$http
@@ -413,7 +413,7 @@ export default {
       const loading = this.$loading({
         lock: true,
         text: "Loading",
-        spinner: "el-icon-loading",
+        //spinner: "el-icon-loading",
         background: "rgba(0, 0, 0, 0.7)",
       });
       this.$http
@@ -440,7 +440,7 @@ export default {
       const loading = this.$loading({
         lock: true,
         text: "Loading",
-        spinner: "el-icon-loading",
+        //spinner: "el-icon-loading",
         background: "rgba(0, 0, 0, 0.7)",
       });
       this.$http.post(`pachong/pachong/zhixing?id=${row.id}`).then((res) => {

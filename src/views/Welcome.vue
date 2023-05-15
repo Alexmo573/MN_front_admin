@@ -4,6 +4,7 @@
     <el-button type="primary" size="mini" @click="getSubject">刷新</el-button>
 
       <div >
+        <!--展示项目信息-->
         <div  v-for="(item,index) in projectList" :key="index">
           <el-card class="subject">
           <h3 class="projectName">{{ item.projectName }}</h3>
@@ -16,6 +17,7 @@
           <div v-for="(pic,index) in item.picPaths">
             <img id="pic" :src=pic alt="loading" :key="index">
           </div>
+          <!--确定项目是否通过-->
           <div id="button">
             <el-button type="success" size="small" @click="green(item.id)">通过</el-button>
             &nbsp;

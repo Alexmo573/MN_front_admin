@@ -12,7 +12,10 @@ module.exports = {
       "component",
       {
         "libraryName": "element-ui",
-        "styleLibraryName": "theme-chalk"
+        "styleLibraryName": "theme-chalk",
+        style: true,
+        libDir: 'lib',
+        camel2Dash: true
       }
     ],
     //发布产品时的插件数组

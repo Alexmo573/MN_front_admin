@@ -10,7 +10,7 @@ module.exports = {
         'vue-router':'VueRouter',
         axios:'axios',
         lodash:'_',
-        nprogress:'NProgress',
+        //nprogress:'NProgress',
       })
       config.plugin('html').tap(args => {
         args[0].isProd = true

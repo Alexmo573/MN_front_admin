@@ -3,8 +3,8 @@
     <!-- 头部区域 -->
     <el-header>
       <div>
-        <!-- <img src="../assets/logo.jpg" alt /> -->
-        <i class="icon-pachong iconfont" style="font-size:40px;margin-left:16px;"></i>
+        <!-- <img src="../assets/logo.jpg" alt /> >
+        <i class="icon-pachong iconfont" style="font-size:40px;margin-left:16px;"></i-->
         <span>MeetingNature后台管理平台</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
@@ -15,25 +15,37 @@
       <el-aside :width="isCollapse ? '60px' : '200px'">
         <div class="toggle-button" @click="toggleCollapse">|||</div>
         <!-- 侧边栏菜单区 -->
-        <el-menu unique-opened background-color="#333744" text-color="#fff" active-text-color="#409eff" :collapse="isCollapse" :collapse-transition="false" router :default-active="activePath">
-          <!-- 一级菜单 -->
+        <el-menu unique-opened background-color="#333744" 
+        text-color="#fff" active-text-color="#409eff" 
+        :collapse="isCollapse" :collapse-transition="false" 
+        router :default-active="activePath">
+          <el-menu-item :index="'/' + item.path" v-for="item in menuList" :key="item.id" @click="saveNavState('/' + item.path)">
+            <template slot="title">
+                <i :class="iconObj[item.id]"></i>
+                <span>{{item.authName}}</span>
+              </template>
+          </el-menu-item>
+          <!-- 一级菜单 
           <el-submenu :index="item.id + ''" v-for="item in menuList" :key="item.id">
-            <!-- 一级菜单的模板区域 -->
+             一级菜单的模板区域
             <template slot="title">
               <i :class="iconObj[item.id]"></i>
-              <!-- 文本 -->
+              文本 
               <span>{{item.authName}}</span>
             </template>
 
-            <!-- 二级菜单的模板区域 -->
-            <el-menu-item :index="'/' + item1.path" v-for="item1 in item.children" :key="item1.id" @click="saveNavState('/' + item1.path)">
+             二级菜单的模板区域 
+            <el-menu-item :index="'/' + item1.path" 
+            v-for="item1 in item.children" 
+            :key="item1.id" @click="saveNavState('/' + item1.path)">
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <!-- 文本 -->
+                 文本 
                 <span>{{item1.authName}}</span>
               </template>
             </el-menu-item>
           </el-submenu>
+          -->
         </el-menu>
       </el-aside>
       <!-- 页面内容主体 -->
@@ -59,16 +71,16 @@ export default {
       isRouterAlive: true,
       menuList: [
         {
+          authName: '项目审核',
+          id: 102,
+          order: 1,
+          path: 'welcome'
+        },
+        {
           authName: '投诉管理',
           id: 103,
           order: 1,
           path: 'district',
-          children:[{
-            authName: '处理投诉',
-            id: 110,
-            order: null,
-            path: 'district'
-          }]
         },
 /*        {
           authName: '爬虫管理',
@@ -144,8 +156,8 @@ export default {
       //     this.$message.info('已取消退出！')
       // })
       this.$message.success('退出成功！')
-        window.sessionStorage.clear()
-        this.$router.push("/login")
+      window.sessionStorage.clear()
+      this.$router.push("/login")
     },
     async getMenuList() {
       const {data: res} = await this.$http.get('menus');
@@ -170,6 +182,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
 .home-container {
   height: 100%;
 }
@@ -185,10 +198,10 @@ export default {
     display: flex;
     align-items: center;
     img {
-      width: 60px;
+      width: 0;
     }
     span {
-      // margin-left: 15px;
+      margin-left: 18px;
     }
   }
 }

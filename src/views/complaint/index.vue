@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2 id="head">投诉管理</h2>
     <!-- 卡片视图 -->
     <el-card v-for="(item,index) in list" :key="index" v-show="item.status!=='green'">
       <div >
@@ -70,6 +71,9 @@ export default{
 }
 </script>
 <style>
+#head{
+  margin-left:18px;
+}
 #checkBut{
   margin-left: 80%;
 }

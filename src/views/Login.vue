@@ -27,7 +27,7 @@
 
 <script>
 export default {
- name: "",
+ name: "login",
   data () {
     return {
       loginForm: {
@@ -56,6 +56,8 @@ export default {
     },
     //登录按钮
      login(formName){
+      this.$message.success('登录成功')
+       window.sessionStorage.setItem('token', 200);
        this.$router.push('/');
       //  this.$refs[formName].validate(async valid => {
       //   if(!valid)  return;
